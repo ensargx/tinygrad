@@ -1,4 +1,7 @@
+import random
 from tinynn import MLP, Number
+from tinynn.layer import Layer
+import tinynn.functional as F
 
 def main():
     X = [
@@ -9,10 +12,12 @@ def main():
     ]
     Y = [-1.0, 1.0, 1.0, -1.0]
 
+    seed = 24
+    rng = random.Random(seed)
     model = MLP(
-        layer_sizes=[2, 4, 4, 1], 
-        act_fn=lambda x: x.tanh(), 
-        seed=42
+        Layer(2, 4, act_fn=F.relu, rng=rng),
+        Layer(4, 4, act_fn=F.relu, rng=rng),
+        Layer(4, 1, act_fn=F.linear, rng=rng),
     )
 
     epochs = 500
