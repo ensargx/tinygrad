@@ -41,17 +41,18 @@ def main():
             p.val -= learning_rate * p._grad
 
         if epoch % 50 == 0 or epoch == epochs - 1:
-            print(f"Epoch {epoch:3d} | Toplam Hata (Loss): {total_loss.val:.4f}")
+            print(f"Epoch {epoch:3d} | Loss: {total_loss.val:.4f}")
 
-    print("\n🎯 Eğitim Bitti! Test Sonuçları:")
+    print("="*50)
     for x_val, y_val in zip(X, Y):
         inputs = [Number(xi) for xi in x_val]
         pred = model(inputs)
 
-        durum = "BAŞARILI" if (pred.val > 0) == (y_val > 0) else "BAŞARISIZ"
+        # type-check
+        if isinstance(pred, list):
+            pred = pred[0]
 
-        print(f"Girdi: {x_val} | Beklenen: {y_val:4.1f} | Tahmin: {pred.val:5.2f} -> {durum}")
-
+        print(f"input: {x_val} | expected: {y_val:4.1f} | prediction: {pred.val:5.2f}")
 
 if __name__ == "__main__":
     main()
