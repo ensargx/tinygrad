@@ -1,5 +1,5 @@
-from tinynn.neuron import Neuron
-from tinynn.number import Number
+from tinygrad.neuron import Neuron
+from tinygrad.number import Number
 
 class Layer:
     def __init__(self, nin, nout, *, act_fn, rng):

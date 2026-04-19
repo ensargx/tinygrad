@@ -1,7 +1,7 @@
 import random
-from tinynn import MLP, Number
-from tinynn.layer import Layer
-import tinynn.functional as F
+from tinygrad import MLP, Number
+from tinygrad.layer import Layer
+import tinygrad.functional as F
 
 def main():
     X = [

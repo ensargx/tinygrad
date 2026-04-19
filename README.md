@@ -1,1 +1,1 @@
-# tinynn
+# tinygrad

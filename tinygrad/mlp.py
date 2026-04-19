@@ -1,5 +1,5 @@
-from tinynn.layer import Layer
-from tinynn.number import Number
+from tinygrad.layer import Layer
+from tinygrad.number import Number
 
 class MLP:
     def __init__(self, *layers: Layer):

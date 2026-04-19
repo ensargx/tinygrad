@@ -1,5 +1,5 @@
 from random import Random
-from tinynn.number import Number
+from tinygrad.number import Number
 
 class Neuron:
     def __init__(self, nin, *, act_fn, rng: Random):
